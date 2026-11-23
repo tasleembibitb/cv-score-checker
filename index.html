@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV Score Checker — Does Your CV Match the Job?</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <h1>CV Score Checker</h1>
+  <p>Does your CV match the job? Paste your CV and the job description to find out.</p>
+</header>
+
+<main class="container">
+  <section class="inputs">
+    <div class="field">
+      <label for="cvText">Your CV</label>
+      <textarea id="cvText" rows="12" placeholder="Paste your CV text here..."></textarea>
+    </div>
+    <div class="field">
+      <label for="jdText">Job Description</label>
+      <textarea id="jdText" rows="12" placeholder="Paste the job description here..."></textarea>
+    </div>
+  </section>
+
+  <div class="actions">
+    <button id="checkBtn" class="btn primary">Check My Score</button>
+    <button id="sampleBtn" class="btn secondary">Load Sample</button>
+    <button id="clearBtn" class="btn ghost">Clear</button>
+  </div>
+
+  <section id="results" class="results hidden">
+    <div class="score-card">
+      <div class="ring-wrap">
+        <svg class="ring" width="180" height="180" viewBox="0 0 180 180">
+          <circle class="ring-bg" cx="90" cy="90" r="78"></circle>
+          <circle id="ringFg" class="ring-fg" cx="90" cy="90" r="78"></circle>
+        </svg>
+        <div class="ring-center">
+          <span id="scoreNum">0</span>
+          <small>/ 100</small>
+        </div>
+      </div>
+      <h2 id="verdict">—</h2>
+      <p id="verdictText">—</p>
+    </div>
+
+    <div class="breakdown">
+      <h3>Score breakdown</h3>
+      <div class="bar-row"><span>Keyword match</span><div class="bar"><div id="barKeywords" class="bar-fill"></div></div><b id="valKeywords">0%</b></div>
+      <div class="bar-row"><span>CV sections</span><div class="bar"><div id="barSections" class="bar-fill"></div></div><b id="valSections">0%</b></div>
+      <div class="bar-row"><span>CV length</span><div class="bar"><div id="barLength" class="bar-fill"></div></div><b id="valLength">0%</b></div>
+    </div>
+
+    <div class="keywords">
+      <div class="kw-col">
+        <h3 class="good">Matched keywords <span id="matchedCount"></span></h3>
+        <div id="matchedList" class="chips"></div>
+      </div>
+      <div class="kw-col">
+        <h3 class="bad">Missing keywords <span id="missingCount"></span></h3>
+        <div id="missingList" class="chips"></div>
+      </div>
+    </div>
+
+    <div class="tips">
+      <h3>How to improve your score</h3>
+      <ul id="tipsList"></ul>
+    </div>
+  </section>
+
+  <p class="note">Your text never leaves this page — everything is checked in your browser. Sample data is fictional and for demo only.</p>
+</main>
+
+<footer>
+  <p>Built by Tasleem Bibi · HTML, CSS &amp; JavaScript</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
